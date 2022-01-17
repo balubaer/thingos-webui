@@ -7,6 +7,7 @@ from .plugins import display
 from .plugins import update
 from .plugins import webdav
 from .plugins import timezone
+from .plugins import setting
 
 import os
 
@@ -19,6 +20,7 @@ port=80
 def main():
   app= tornado.web.Application([
          (r"/", index.handler.IndexHandler),
+         (r"/settings", setting.handler.SettingHandler),
          (r"/power", power.handler.PowerHandler),
          (r"/display", display.handler.DisplayHandler),
          (r"/update", update.handler.UpdateHandler),
