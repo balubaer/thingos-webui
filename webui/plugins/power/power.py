@@ -8,10 +8,11 @@ class PowerHandler(tornado.web.RequestHandler):
 
     def post(self):
         self.set_header("Content-Type", "text/plain")
+        self.redirect("/display")
         if (self.get_body_argument("action")=="shutdown"):
             shutdown()
         if (self.get_body_argument("action")=="reboot"):
-            reboot();
+            reboot()
         self.write("You wrote " + self.get_body_argument("action"))
 
 

@@ -5,7 +5,7 @@
 
 {% if isOn %}
 <form action="/display" method="POST">
-  <center><label class="w3-text-white"><b>Bildschirm ausschalten</b></label></center>
+  <center><label class="w3-text-white"><b>Bilderrahmen ausschalten</b></label></center>
   <div class="w3-row">
     <center><input type="image" name="action" src="{{ static_url("gruen.png") }}" value="off" /></center>
   </div>
@@ -23,14 +23,14 @@
 
   <form class="" action="/display" method="POST">
 
-    <label class="w3-text-white"><b>Automatic Display Activation</b></label>
+    <center><label class="w3-text-white"><b>Einschaltzeiten Bilderrahmen</b></label></center>
     <div class="w3-row">
 
       <div class="w3-col" style="width:40%">
-        <label class="w3-text-white"><b>From</b></label>
+        <label class="w3-text-white"><b>Von</b></label>
         <div class="w3-row">
           <div class="w3-col" style="width:50%">
-            <input class="w3-input w3-border" type="text" placeholder="Hour" value="{{ fromhour }}" name="fromhour">
+            <input class="w3-input w3-border" type="text" placeholder="Stunde" value="{{ fromhour }}" name="fromhour">
           </div>
           <div class="w3-col" style="width:50%">
             <input class="w3-input w3-border" type="text" placeholder="Minute" value="{{ fromminute }}"
@@ -45,10 +45,10 @@
       </div>
 
       <div class="w3-col" style="width:40%">
-        <label class="w3-text-white"><b>To</b></label>
+        <label class="w3-text-white"><b>Bis</b></label>
         <div class="w3-row">
           <div class="w3-col" style="width:50%">
-            <input class="w3-input w3-border" type="text" placeholder="Hour" value="{{ tohour }}" name="tohour">
+            <input class="w3-input w3-border" type="text" placeholder="Stunde" value="{{ tohour }}" name="tohour">
           </div>
           <div class="w3-col" style="width:50%">
             <input class="w3-input w3-border" type="text" placeholder="Minute" value="{{ tominute }}" name="tominute">
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <button class="w3-button w3-round-large w3-grey" style="width:100%" name="action" value="set">Save</button>
+    <button class="w3-button w3-round-large w3-grey" style="width:100%" name="action" value="set">Speichern</button>
 
   </form>
 
@@ -65,7 +65,9 @@
 
   <form class="" action="/display" method="POST">
 
-    <label class="w3-text-white"><b>Slideshow Delay</b></label>
+    <label class="w3-text-white"><b>Zeit zwischen Bilderwechsel</b></label>
+    <label class="w3-text-white"><b>in Sekunden</b></label>
+
     <div class="w3-row">
 
       <div class="w3-col" style="width:100%">
@@ -75,9 +77,12 @@
 
     </div>
 
-    <button class="w3-button w3-round-large w3-grey" style="width:100%" name="action" value="setdelay">Save</button>
+    <button class="w3-button w3-round-large w3-grey" style="width:100%" name="action" value="setdelay">Speichern</button>
 
   </form>
-
+  <form action="/power" method="POST">
+    <button class="w3-button w3-round-large w3-grey" style="width:100%" name="action" value="reboot">Bilderahmen neustarten</button>
+  </form>
+  <a class="w3-button w3-round-large w3-grey w3-margin-bottom" style="width:100%" href="/settings">Einstellungen</a>
 
   {% end %}
